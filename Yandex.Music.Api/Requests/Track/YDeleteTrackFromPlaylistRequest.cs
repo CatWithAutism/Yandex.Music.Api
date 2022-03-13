@@ -9,13 +9,14 @@ namespace Yandex.Music.Api.Requests.Track
         public YDeleteTrackFromPlaylistRequest(HttpContext context) : base(context)
         {
         }
-        
-        public HttpWebRequest Create(string ownerId, int from, int to, int revision, string kind, string lang, string sign, string userUid, string userLogin, string experements)
+
+        public HttpWebRequest Create(string ownerId, int from, int to, int revision, string kind, string lang,
+            string sign, string userUid, string userLogin, string experements)
         {
             var diff = "[{\"op\":\"delete\",\"from\":" + from + ",\"to\":" + to + "}]";
             var url = "https://music.yandex.ru/handlers/playlist-patch.jsx";
-            
-            var request = GetRequest(url, 
+
+            var request = GetRequest(url,
                 new KeyValuePair<string, string>("owner", ownerId),
                 new KeyValuePair<string, string>("kind", kind),
                 new KeyValuePair<string, string>("revision", revision.ToString()), // ?
@@ -25,7 +26,7 @@ namespace Yandex.Music.Api.Requests.Track
                 new KeyValuePair<string, string>("experiments", experements),
                 new KeyValuePair<string, string>("external-domain", "music.yandex.ru"),
                 new KeyValuePair<string, string>("overembed", "false"));
-            
+
             request.Headers[HttpRequestHeader.Accept] = "application/json, text/javascript, */*; q=0.01";
             request.Headers["Accept-Encoding"] = "gzip, deflate, br";
             request.Headers["Accept-Language"] = "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7";

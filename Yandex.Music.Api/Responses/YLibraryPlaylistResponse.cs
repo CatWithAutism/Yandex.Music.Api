@@ -22,7 +22,7 @@ namespace Yandex.Music.Api.Responses
 
         public static YLibraryPlaylistResponse FromJson(JToken json)
         {
-            var playlists = new List<YLibraryPlaylistResponse.YandexLibraryPlaylist>();
+            var playlists = new List<YandexLibraryPlaylist>();
 
             foreach (var x in json["playlists"])
             {
@@ -66,7 +66,7 @@ namespace Yandex.Music.Api.Responses
                     OgImage = x["ogImage"]?.ToObject<string>(),
                     Tracks = tracks,
                     Tags = x["tags"]?.ToString(),
-                    Prerolls = x["prerolls"]?.ToString(),
+                    Prerolls = x["prerolls"]?.ToString()
                 };
                 playlists.Add(playlist);
             }
@@ -89,7 +89,7 @@ namespace Yandex.Music.Api.Responses
             var counts = new YLikedCounts
             {
                 LikedArtists = json["counts"]["likedArtists"].ToObject<long>(),
-                LikedAlbums = json["counts"]["likedAlbums"].ToObject<long>(),
+                LikedAlbums = json["counts"]["likedAlbums"].ToObject<long>()
             };
 
             return new YLibraryPlaylistResponse
@@ -108,8 +108,6 @@ namespace Yandex.Music.Api.Responses
                 IsRadioAvailable = json["isRadioAvailable"].ToObject<bool>()
             };
         }
-
-
 
 
         public class YandexLibraryPlaylist

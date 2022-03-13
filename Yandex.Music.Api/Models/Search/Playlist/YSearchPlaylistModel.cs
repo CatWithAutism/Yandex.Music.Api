@@ -20,10 +20,7 @@ namespace Yandex.Music.Api.Models.Search.Playlist
 
         internal static YSearchPlaylistModel FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchPlaylistModel
             {
@@ -36,7 +33,7 @@ namespace Yandex.Music.Api.Models.Search.Playlist
                 Cover = YCover.FromJson(json.SelectToken("cover")),
                 Owner = YOwner.FromJson(json["owner"]),
                 Tags = json.SelectToken("tags")?.Select(x => x.ToObject<string>()).ToList(),
-                LikesCount = json.SelectToken("likesCount")?.ToObject<long>(),
+                LikesCount = json.SelectToken("likesCount")?.ToObject<long>()
             };
         }
     }

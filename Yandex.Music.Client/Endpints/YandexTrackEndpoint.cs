@@ -6,8 +6,8 @@ namespace Yandex.Music.Client.Endpints
 {
     public class YandexTrackEndpoint
     {
-        private IYandexMusicApi _api;
-        
+        private readonly IYandexMusicApi _api;
+
         public YandexTrackEndpoint(IYandexMusicApi api)
         {
             _api = api;
@@ -16,7 +16,7 @@ namespace Yandex.Music.Client.Endpints
         public async Task SearchTrackAsync(string searchText, int page = 0)
         {
             var response = await _api.SearchTrackAsync(searchText, page);
-            
+
             Console.WriteLine("123");
         }
     }

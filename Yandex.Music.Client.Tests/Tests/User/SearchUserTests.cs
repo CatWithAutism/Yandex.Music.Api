@@ -11,7 +11,7 @@ namespace Yandex.Music.Client.Tests.Tests.User
             await Client.AuthorizeAsync(AppSettings.Login, AppSettings.Password);
 
 //            var playlistFavorites = 
-                await Client.User.SearchAsync("Winster332");
+            await Client.User.SearchAsync("Winster332");
         }
     }
 }

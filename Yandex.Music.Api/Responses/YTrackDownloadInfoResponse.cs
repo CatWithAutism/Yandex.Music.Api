@@ -18,7 +18,7 @@ namespace Yandex.Music.Api.Responses
                 Bitrate = data["bitrate"].ToObject<int>(),
                 Src = data["src"].ToObject<string>(),
                 Gain = data["gain"].ToObject<bool>(),
-                Preview = data["preview"].ToObject<bool>(),
+                Preview = data["preview"].ToObject<bool>()
             };
         }
     }

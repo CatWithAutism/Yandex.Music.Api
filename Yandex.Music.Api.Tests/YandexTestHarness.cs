@@ -2,14 +2,10 @@
 
 namespace Yandex.Music.Api.Tests
 {
-  public class YandexTestHarness : IDisposable
-  {
-    public YandexTestHarness()
+    public class YandexTestHarness : IDisposable
     {
+        public void Dispose()
+        {
+        }
     }
-
-    public void Dispose()
-    {
-    }
-  }
 }

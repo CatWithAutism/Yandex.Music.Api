@@ -8,7 +8,7 @@ namespace Yandex.Music.Api.Requests.Auth
         public YAuthorizeRequest(HttpContext context) : base(context)
         {
         }
-        
+
         public HttpWebRequest Create(string login, string password)
         {
             return GetRequest("https://pda-passport.yandex.ru/passport?mode=auth",

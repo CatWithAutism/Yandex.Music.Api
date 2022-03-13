@@ -11,10 +11,7 @@ namespace Yandex.Music.Api.Models.Search.Artist
 
         internal static YSearchArtistCounter FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchArtistCounter
             {

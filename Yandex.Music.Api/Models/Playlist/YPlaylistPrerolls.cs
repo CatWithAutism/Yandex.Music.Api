@@ -9,10 +9,7 @@ namespace Yandex.Music.Api.Models.Playlist
 
         internal static YPlaylistPrerolls FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YPlaylistPrerolls
             {

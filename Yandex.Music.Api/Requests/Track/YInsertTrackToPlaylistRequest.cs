@@ -10,11 +10,13 @@ namespace Yandex.Music.Api.Requests.Track
         {
         }
 
-        public HttpWebRequest Create(string ownerId, string trackId, string trackAlbumId, string kind, string lang, string sign, string userUid, string userLogin, string experements)
+        public HttpWebRequest Create(string ownerId, string trackId, string trackAlbumId, string kind, string lang,
+            string sign, string userUid, string userLogin, string experements)
         {
-            var diff = "[{\"op\":\"insert\",\"at\":6,\"tracks\":[{\"id\":\"" + trackId + "\",\"albumId\":" + trackAlbumId + "}]}]";
+            var diff = "[{\"op\":\"insert\",\"at\":6,\"tracks\":[{\"id\":\"" + trackId + "\",\"albumId\":" +
+                       trackAlbumId + "}]}]";
             var url = "https://music.yandex.ru/handlers/playlist-patch.jsx";
-            var request = GetRequest(url, 
+            var request = GetRequest(url,
                 new KeyValuePair<string, string>("owner", ownerId),
                 new KeyValuePair<string, string>("kind", kind),
                 new KeyValuePair<string, string>("revision", "7"), // ?
@@ -25,7 +27,7 @@ namespace Yandex.Music.Api.Requests.Track
                 new KeyValuePair<string, string>("experiments", experements),
                 new KeyValuePair<string, string>("external-domain", "music.yandex.ru"),
                 new KeyValuePair<string, string>("overembed", "false"));
-            
+
             request.Headers[HttpRequestHeader.Accept] = "application/json; q=1.0, text/*; q=0.8, */*; q=0.1";
             request.Headers["Accept-Encoding"] = "gzip, deflate, br";
             request.Headers["Accept-Language"] = "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7";

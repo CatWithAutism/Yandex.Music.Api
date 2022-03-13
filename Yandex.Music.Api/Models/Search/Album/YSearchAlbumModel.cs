@@ -25,10 +25,7 @@ namespace Yandex.Music.Api.Models.Search.Album
 
         internal static YSearchAlbumModel FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchAlbumModel
             {
@@ -45,7 +42,7 @@ namespace Yandex.Music.Api.Models.Search.Album
                 Title = json.SelectToken("title")?.ToObject<string>(),
                 TrackPosition = YTrackPosition.FromJson(json.SelectToken("trackPosition")),
                 Type = json.SelectToken("type")?.ToObject<string>(),
-                Regions = json.SelectToken("regions")?.Select(x => x.ToObject<string>()).ToList(),
+                Regions = json.SelectToken("regions")?.Select(x => x.ToObject<string>()).ToList()
             };
         }
     }

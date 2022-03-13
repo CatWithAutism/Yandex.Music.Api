@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Yandex.Music.Api.Models.Artist;
-using Yandex.Music.Api.Responses;
 
 namespace Yandex.Music.Api.Common
 {
@@ -15,7 +14,9 @@ namespace Yandex.Music.Api.Common
         public string ReleaseDate { get; set; }
         public string CoverUri { get; set; }
         public string OgImage { get; set; }
+
         public string Genre { get; set; }
+
 //            public List<string> Buy { get; set; }
         public int TrackCount { get; set; }
         public bool Recent { get; set; }
@@ -31,10 +32,7 @@ namespace Yandex.Music.Api.Common
 
         internal static YAlbum FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YAlbum
             {

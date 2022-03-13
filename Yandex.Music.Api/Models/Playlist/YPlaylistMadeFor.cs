@@ -10,10 +10,7 @@ namespace Yandex.Music.Api.Models.Playlist
 
         internal static YPlaylistMadeFor FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YPlaylistMadeFor
             {
@@ -21,7 +18,7 @@ namespace Yandex.Music.Api.Models.Playlist
                 MadeFor = YMadeForCaseForms.FromJson(json.SelectToken("caseForms"))
             };
         }
-        
+
         public class YMadeForCaseForms
         {
             public string Nominative { get; set; }
@@ -33,10 +30,7 @@ namespace Yandex.Music.Api.Models.Playlist
 
             internal static YMadeForCaseForms FromJson(JToken json)
             {
-                if (json == null)
-                {
-                    return null;
-                }
+                if (json == null) return null;
 
                 return new YMadeForCaseForms
                 {
@@ -45,7 +39,7 @@ namespace Yandex.Music.Api.Models.Playlist
                     Dative = json.SelectToken("dative")?.ToObject<string>(),
                     Accusative = json.SelectToken("accusative")?.ToObject<string>(),
                     Instrumental = json.SelectToken("instrumental")?.ToObject<string>(),
-                    Prepositional = json.SelectToken("prepositional")?.ToObject<string>(),
+                    Prepositional = json.SelectToken("prepositional")?.ToObject<string>()
                 };
             }
         }

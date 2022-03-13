@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Yandex.Music.Api\Yandex.Music.Api.csproj" />
+        <ProjectReference Include="..\Yandex.Music.Api\Yandex.Music.Api.csproj"/>
     </ItemGroup>
 
 </Project>

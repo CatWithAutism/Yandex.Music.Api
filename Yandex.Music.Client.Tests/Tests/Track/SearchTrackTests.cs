@@ -11,7 +11,7 @@ namespace Yandex.Music.Client.Tests.Tests.Track
             await Client.AuthorizeAsync(AppSettings.Login, AppSettings.Password);
 
 //            var playlistFavorites = 
-                await Client.Track.SearchTrackAsync("Damn That Valley");
+            await Client.Track.SearchTrackAsync("Damn That Valley");
         }
     }
 }

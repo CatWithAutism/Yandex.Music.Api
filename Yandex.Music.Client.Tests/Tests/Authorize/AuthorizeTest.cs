@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
@@ -15,7 +14,7 @@ namespace Yandex.Music.Client.Tests.Tests.Authorize
             isAuthorized.Should().BeTrue();
             Client.AuthUser.Should().NotBeNull();
         }
-        
+
         [Fact]
         public async Task AuthorizeTest_Authorize_ReturnFail()
         {

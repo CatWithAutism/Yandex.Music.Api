@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
-using Yandex.Music.Api.Common;
 using Yandex.Music.Api.Models.Search.Album;
 using Yandex.Music.Api.Models.Search.Artist;
 
@@ -25,10 +24,7 @@ namespace Yandex.Music.Api.Models.Search.Track
 
         internal static YSearchTrackModel FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchTrackModel
             {

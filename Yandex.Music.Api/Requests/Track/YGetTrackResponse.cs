@@ -10,7 +10,10 @@ namespace Yandex.Music.Api.Requests.Track
 
         public HttpWebRequest Create(string trackId, string lang)
         {
-            var request = GetRequest($"https://music.yandex.ru/handlers/track.jsx?track={trackId}&lang={lang}&external-domain=music.yandex.ru&overembed=false", WebRequestMethods.Http.Get);
+            var request =
+                GetRequest(
+                    $"https://music.yandex.ru/handlers/track.jsx?track={trackId}&lang={lang}&external-domain=music.yandex.ru&overembed=false",
+                    WebRequestMethods.Http.Get);
 
             return request;
         }

@@ -7,7 +7,7 @@ namespace Yandex.Music.Api.Requests.Library
         public YGetLibraryHistoryRequest(HttpContext context) : base(context)
         {
         }
-        
+
         public HttpWebRequest Create(string userLogin, string userLang, string userUid)
         {
             var url =

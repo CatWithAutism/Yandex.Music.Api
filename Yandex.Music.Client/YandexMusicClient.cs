@@ -7,18 +7,10 @@ namespace Yandex.Music.Client
 {
     public class YandexMusicClient
     {
-        public YandexTrackEndpoint Track { get; set; }
-        public YandexPlaylistEndpoint Playlist { get; set; }
-        public YandexArtistEndpoint Artist { get; set; }
-        public YandexAlbumEndpoint Album { get; set; }
-        public YandexUserEndpoint User { get; set; }
-        public IYandexMusicApi Api { get; set; }
-        public YandexAuthUser AuthUser { get; set; }
-        
         public YandexMusicClient()
         {
             Api = new YandexMusicApi();
-            
+
             Track = new YandexTrackEndpoint(Api);
             Playlist = new YandexPlaylistEndpoint(Api);
             Artist = new YandexArtistEndpoint(Api);
@@ -26,16 +18,21 @@ namespace Yandex.Music.Client
             User = new YandexUserEndpoint(Api);
         }
 
+        public YandexTrackEndpoint Track { get; set; }
+        public YandexPlaylistEndpoint Playlist { get; set; }
+        public YandexArtistEndpoint Artist { get; set; }
+        public YandexAlbumEndpoint Album { get; set; }
+        public YandexUserEndpoint User { get; set; }
+        public IYandexMusicApi Api { get; set; }
+        public YandexAuthUser AuthUser { get; set; }
+
         public async Task<bool> AuthorizeAsync(string login, string password)
         {
-            var response = await Api.AuthorizeAsync(login, password, false);
+            var response = await Api.AuthorizeAsync(login, password);
             var user = response.User;
 
-            if (!response.IsAuthorized)
-            {
-                return false;
-            }
-            
+            if (!response.IsAuthorized) return false;
+
             AuthUser = new YandexAuthUser
             {
                 Uid = user.Uid,
@@ -51,7 +48,7 @@ namespace Yandex.Music.Client
                 YandexId = user.YandexId,
                 Timestamp = user.Timestamp
             };
-            
+
             return true;
         }
     }

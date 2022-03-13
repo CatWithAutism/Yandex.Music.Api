@@ -9,11 +9,8 @@ namespace Yandex.Music.Api.Common
 
         internal static YTrackNormalization FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
-            
+            if (json == null) return null;
+
             return new YTrackNormalization
             {
                 Gain = json.SelectToken("gain").ToObject<double>(),

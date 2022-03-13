@@ -13,13 +13,10 @@ namespace Yandex.Music.Api.Models.Search.Artist
         public bool? Composer { get; set; }
         public bool? Various { get; set; }
         public List<string> Decomposed { get; set; }
-        
+
         internal static YSearchArtist FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchArtist
             {

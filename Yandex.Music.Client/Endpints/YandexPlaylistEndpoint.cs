@@ -6,7 +6,8 @@ namespace Yandex.Music.Client.Endpints
 {
     public class YandexPlaylistEndpoint
     {
-        private IYandexMusicApi _api;
+        private readonly IYandexMusicApi _api;
+
         public YandexPlaylistEndpoint(IYandexMusicApi api)
         {
             _api = api;
@@ -15,7 +16,7 @@ namespace Yandex.Music.Client.Endpints
         public async Task GetFavoritesAsync()
         {
             var response = await _api.GetPlaylistFavoritesAsync();
-            
+
             Console.WriteLine("123");
         }
 
@@ -28,7 +29,7 @@ namespace Yandex.Music.Client.Endpints
         public async Task GetDejaVuAsync()
         {
             var response = await _api.GetPlaylistDejaVuAsync();
-            
+
             Console.WriteLine("123");
         }
 

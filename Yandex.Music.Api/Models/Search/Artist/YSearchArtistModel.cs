@@ -18,13 +18,10 @@ namespace Yandex.Music.Api.Models.Search.Artist
         public bool? TicketsAvailable { get; set; }
         public List<YSearchTrackModel> PopularTracks { get; set; }
         public List<string> Regions { get; set; }
-        
+
         internal static YSearchArtistModel FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchArtistModel
             {

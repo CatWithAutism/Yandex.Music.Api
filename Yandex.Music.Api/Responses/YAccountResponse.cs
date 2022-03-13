@@ -15,12 +15,12 @@ namespace Yandex.Music.Api.Responses
             var yandexAccounts = new YAccountResponse
             {
                 DefaultUID = json["default_uid"].ToObject<string>(),
-                Accounts = json["accounts"].Select(x => new YAccountResponse.YandexAccount
+                Accounts = json["accounts"].Select(x => new YandexAccount
                 {
                     Status = x["status"].ToObject<bool>(),
                     UID = x["uid"].ToObject<string>(),
                     Login = x["login"].ToObject<string>(),
-                    DisplayName = new YAccountResponse.YandexAccount.YandexAccountDisplayName
+                    DisplayName = new YandexAccount.YandexAccountDisplayName
                     {
                         Name = x["displayName"]["name"].ToObject<string>(),
                         DefaultAvatar = x["displayName"]["default_avatar"].ToObject<string>()

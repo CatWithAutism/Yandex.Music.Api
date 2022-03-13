@@ -13,10 +13,7 @@ namespace Yandex.Music.Api.Models.Search
 
         internal static YSearchCounter FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchCounter
             {

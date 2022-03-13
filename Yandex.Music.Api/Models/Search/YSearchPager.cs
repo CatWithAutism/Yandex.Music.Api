@@ -10,10 +10,7 @@ namespace Yandex.Music.Api.Models.Search
 
         internal static YSearchPager FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YSearchPager
             {

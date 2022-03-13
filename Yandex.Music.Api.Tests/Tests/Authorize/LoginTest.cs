@@ -13,7 +13,8 @@ namespace Yandex.Music.Api.Tests.Tests.Authorize
         {
         }
 
-        [Fact, YandexTrait(TraitGroup.Authorize)]
+        [Fact]
+        [YandexTrait(TraitGroup.Authorize)]
         public async Task Authorize_ValidData_GenerateTrue()
         {
             var isAuthorized = await Api.AuthorizeAsync(AppSettings.Login, AppSettings.Password);
@@ -21,7 +22,8 @@ namespace Yandex.Music.Api.Tests.Tests.Authorize
             isAuthorized.IsAuthorized.Should().BeTrue();
         }
 
-        [Fact, YandexTrait(TraitGroup.Authorize)]
+        [Fact]
+        [YandexTrait(TraitGroup.Authorize)]
         public void Authorize_InvalidData_GenerateFalse()
         {
             var isAuthorized = Api.Authorize("invalid-login", "invalid-password");

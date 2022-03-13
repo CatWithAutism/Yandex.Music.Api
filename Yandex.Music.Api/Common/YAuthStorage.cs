@@ -1,20 +1,18 @@
-
 using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Yandex.Music.Api.Requests;
 
 namespace Yandex.Music.Api.Common
 {
     public class YAuthStorage
     {
-        private string _filePath;
-        
+        private readonly string _filePath;
+
         public YAuthStorage(string filePath)
         {
             _filePath = filePath;
         }
-        
+
         public async Task SaveAsync(YUser user)
         {
             File.Delete(_filePath);
@@ -34,10 +32,7 @@ namespace Yandex.Music.Api.Common
         {
             var user = default(YUser);
 
-            if (!File.Exists(_filePath))
-            {
-                return user;
-            }
+            if (!File.Exists(_filePath)) return user;
 
             var userSource = string.Empty;
 

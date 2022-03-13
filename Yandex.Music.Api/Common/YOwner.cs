@@ -12,10 +12,7 @@ namespace Yandex.Music.Api.Common
 
         internal static YOwner FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YOwner
             {

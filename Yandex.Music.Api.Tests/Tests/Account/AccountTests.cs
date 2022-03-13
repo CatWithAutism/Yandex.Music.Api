@@ -11,8 +11,9 @@ namespace Yandex.Music.Api.Tests.Tests.Account
         public AccountTests(YandexTestHarness fixture, ITestOutputHelper output = null) : base(fixture, output)
         {
         }
-        
-        [Fact, YandexTrait(TraitGroup.Authorize)]
+
+        [Fact]
+        [YandexTrait(TraitGroup.Authorize)]
         public void Account_ValidData_GenerateTrue()
         {
             var isAuthorized = Api.Authorize(AppSettings.Login, AppSettings.Password);

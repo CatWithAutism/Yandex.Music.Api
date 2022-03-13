@@ -10,10 +10,7 @@ namespace Yandex.Music.Api.Models.Playlist
 
         internal static YPlaylistPlayCounter FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             return new YPlaylistPlayCounter
             {

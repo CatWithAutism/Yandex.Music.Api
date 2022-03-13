@@ -14,7 +14,7 @@ namespace Yandex.Music.Api.Requests.Album
                 GetRequest(
                     $"https://music.yandex.ru/handlers/album.jsx?album={albumId}&lang={lang}&external-domain=music.yandex.ru&overembed=false",
                     WebRequestMethods.Http.Get);
-            
+
             return request;
         }
     }

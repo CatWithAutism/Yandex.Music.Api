@@ -40,7 +40,7 @@ namespace Yandex.Music.Api.Responses
                 RbtDisabled = json["user"]["settings"]["rbtDisabled"].ToObject<bool>(),
                 Theme = json["user"]["settings"]["theme"].ToObject<string>(),
                 PromosDisabled = json["user"]["settings"]["promosDisabled"].ToObject<bool>(),
-                AutoPlayRadio = json["user"]["settings"]["autoPlayRadio"].ToObject<bool>(),
+                AutoPlayRadio = json["user"]["settings"]["autoPlayRadio"].ToObject<bool>()
             };
 
             var authUser = new YandexAuthUser
@@ -71,8 +71,7 @@ namespace Yandex.Music.Api.Responses
                 Login = json["user"]["login"].ToObject<string>(),
                 Uid = json["user"]["uid"].ToObject<string>(),
                 Settings = authUserSettings,
-                HasEmail = json["user"]["hasEmail"].ToObject<bool>(),
-
+                HasEmail = json["user"]["hasEmail"].ToObject<bool>()
             };
 
             return new YAuthInfoUserResponse

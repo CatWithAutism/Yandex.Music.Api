@@ -16,7 +16,7 @@ namespace Yandex.Music.Api.Responses
                 S = data["s"].ToObject<string>(),
                 Ts = data["ts"].ToObject<string>(),
                 Path = data["path"].ToObject<string>(),
-                Host = data["host"].ToObject<string>(),
+                Host = data["host"].ToObject<string>()
             };
         }
     }

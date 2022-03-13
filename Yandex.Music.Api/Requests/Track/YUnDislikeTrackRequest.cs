@@ -10,16 +10,16 @@ namespace Yandex.Music.Api.Requests.Track
         public YUnDislikeTrackRequest(HttpContext context) : base(context)
         {
         }
-        
+
         public HttpWebRequest Create(string trackKey, long time, string sign, string userUid, string userLogin)
         {
             var trackPair = trackKey.Split(':');
             var trackId = trackPair.FirstOrDefault();
             var albumId = trackPair.LastOrDefault();
-            
+
             var url =
                 $"https://music.yandex.ru/api/v2.1/handlers/radio/radio/history/feedback/undislike/{trackKey}?__t={time}";
-            var request = GetRequest(url, 
+            var request = GetRequest(url,
                 new KeyValuePair<string, string>("timestamp", time.ToString()),
                 new KeyValuePair<string, string>("from", "web-radio-user-main"),
                 new KeyValuePair<string, string>("batchId", "undefined"),
@@ -29,7 +29,7 @@ namespace Yandex.Music.Api.Requests.Track
                 new KeyValuePair<string, string>("sign", sign),
                 new KeyValuePair<string, string>("external-domain", "music.yandex.ru"),
                 new KeyValuePair<string, string>("overembed", "no"));
-            
+
             request.Headers[HttpRequestHeader.Accept] = "application/json; q=1.0, text/*; q=0.8, */*; q=0.1";
 //      request.Headers["Accept-Encoding"] = "gzip, deflate, br";
             request.Headers["Content-Type"] = "application/x-www-form-urlencoded";

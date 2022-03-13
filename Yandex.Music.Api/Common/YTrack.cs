@@ -31,10 +31,7 @@ namespace Yandex.Music.Api.Common
 
         internal static YTrack FromJson(JToken json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             var id = json.SelectToken("id")?.ToObject<string>();
             var realId = json.SelectToken("realId")?.ToObject<string>();
