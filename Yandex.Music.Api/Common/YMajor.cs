@@ -1,21 +1,20 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YMajor
 {
-    public class YMajor
+    public string Id { get; set; }
+    public string Name { get; set; }
+
+    public static YMajor FromJson(JToken json)
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        if (json == null) return null;
 
-        public static YMajor FromJson(JToken json)
+        return new YMajor
         {
-            if (json == null) return null;
-
-            return new YMajor
-            {
-                Id = json["id"].ToObject<string>(),
-                Name = json["name"].ToObject<string>()
-            };
-        }
+            Id = json["id"].ToObject<string>(),
+            Name = json["name"].ToObject<string>()
+        };
     }
 }

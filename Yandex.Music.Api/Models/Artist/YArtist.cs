@@ -1,29 +1,24 @@
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
-namespace Yandex.Music.Api.Models.Artist
+namespace Yandex.Music.Api.Models.Artist;
+
+public class YArtist
 {
-    public class YArtist
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public bool Various { get; set; }
-        public bool Composer { get; set; }
-        public YArtistCover Cover { get; set; }
-        public List<string> Genres { get; set; }
+    [JsonProperty("id")] public int Id { get; set; }
 
-        internal static YArtist FromJson(JToken json)
-        {
-            return new YArtist
-            {
-                Id = json["id"].ToObject<string>(),
-                Name = json["name"].ToObject<string>(),
-                Various = json["various"].ToObject<bool>(),
-                Composer = json["composer"].ToObject<bool>(),
-                Cover = YArtistCover.FromJson(json["cover"]),
-                Genres = json["genres"].Select(x => x.ToObject<string>()).ToList()
-            };
-        }
+    [JsonProperty("name")] public string Name { get; set; }
+
+    [JsonProperty("various")] public bool Various { get; set; }
+
+    [JsonProperty("composer")] public bool Composer { get; set; }
+
+    [JsonProperty("cover")] public YArtistCover Cover { get; set; }
+
+    [JsonProperty("genres")] public List<string> Genres { get; set; }
+
+    internal static YArtist FromJson(string json)
+    {
+        return string.IsNullOrWhiteSpace(json) ? null : JsonConvert.DeserializeObject<YArtist>(json);
     }
 }

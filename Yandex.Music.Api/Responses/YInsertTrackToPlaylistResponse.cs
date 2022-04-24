@@ -1,21 +1,20 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Responses
+namespace Yandex.Music.Api.Responses;
+
+public class YInsertTrackToPlaylistResponse
 {
-    public class YInsertTrackToPlaylistResponse
+    public bool Success { get; set; }
+    public YPlaylistResponse Playlist { get; set; }
+
+    public static YInsertTrackToPlaylistResponse FromJson(JToken json)
     {
-        public bool Success { get; set; }
-        public YPlaylistResponse Playlist { get; set; }
-
-        public static YInsertTrackToPlaylistResponse FromJson(JToken json)
+        var response = new YInsertTrackToPlaylistResponse
         {
-            var response = new YInsertTrackToPlaylistResponse
-            {
-                Success = json["success"].ToObject<bool>(),
-                Playlist = YPlaylistResponse.FromJson(json["playlist"])
-            };
+            Success = json["success"].ToObject<bool>(),
+            Playlist = YPlaylistResponse.FromJson(json["playlist"])
+        };
 
-            return response;
-        }
+        return response;
     }
 }

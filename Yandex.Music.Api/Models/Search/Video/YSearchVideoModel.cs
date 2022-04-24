@@ -1,6 +1,5 @@
-namespace Yandex.Music.Api.Models.Search.Video
+namespace Yandex.Music.Api.Models.Search.Video;
+
+public class YSearchVideoModel
 {
-    public class YSearchVideoModel
-    {
-    }
 }

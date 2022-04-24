@@ -1,19 +1,15 @@
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YLabel
 {
-    public class YLabel
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
+    [JsonProperty("id")] public int Id { get; set; }
 
-        internal static YLabel FromJson(JToken json)
-        {
-            return new YLabel
-            {
-                Id = json["id"].ToObject<string>(),
-                Name = json["name"].ToObject<string>()
-            };
-        }
+    [JsonProperty("name")] public string Name { get; set; }
+
+    internal static YLabel FromJson(string json)
+    {
+        return string.IsNullOrWhiteSpace(json) ? null : JsonConvert.DeserializeObject<YLabel>(json);
     }
 }

@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Yandex.Music.Api.Tests
+namespace Yandex.Music.Api.Tests;
+
+public class YandexTestHarness : IDisposable
 {
-    public class YandexTestHarness : IDisposable
+    public void Dispose()
     {
-        public void Dispose()
-        {
-        }
     }
 }

@@ -1,21 +1,20 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YTrackPosition
 {
-    public class YTrackPosition
+    public int? Volume { get; set; }
+    public int? Index { get; set; }
+
+    internal static YTrackPosition FromJson(JToken json)
     {
-        public int? Volume { get; set; }
-        public int? Index { get; set; }
+        if (json == null) return null;
 
-        internal static YTrackPosition FromJson(JToken json)
+        return new YTrackPosition
         {
-            if (json == null) return null;
-
-            return new YTrackPosition
-            {
-                Volume = json.SelectToken("volume")?.ToObject<int>(),
-                Index = json.SelectToken("index")?.ToObject<int>()
-            };
-        }
+            Volume = json.SelectToken("volume")?.ToObject<int>(),
+            Index = json.SelectToken("index")?.ToObject<int>()
+        };
     }
 }

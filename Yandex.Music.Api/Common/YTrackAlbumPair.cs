@@ -1,19 +1,18 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Common
-{
-    public class YTrackAlbumPair
-    {
-        public string Id { get; set; }
-        public string AlbumId { get; set; }
+namespace Yandex.Music.Api.Common;
 
-        internal static YTrackAlbumPair FromJson(JToken json)
+public class YTrackAlbumPair
+{
+    public string Id { get; set; }
+    public string AlbumId { get; set; }
+
+    internal static YTrackAlbumPair FromJson(JToken json)
+    {
+        return new YTrackAlbumPair
         {
-            return new YTrackAlbumPair
-            {
-                Id = json["id"].ToObject<string>(),
-                AlbumId = json["albumId"].ToObject<string>()
-            };
-        }
+            Id = json["id"].ToObject<string>(),
+            AlbumId = json["albumId"].ToObject<string>()
+        };
     }
 }

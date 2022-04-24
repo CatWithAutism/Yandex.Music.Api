@@ -1,21 +1,20 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Models.Playlist
+namespace Yandex.Music.Api.Models.Playlist;
+
+public class YPlaylistPrerolls
 {
-    public class YPlaylistPrerolls
+    public string Id { get; set; }
+    public string Link { get; set; }
+
+    internal static YPlaylistPrerolls FromJson(JToken json)
     {
-        public string Id { get; set; }
-        public string Link { get; set; }
+        if (json == null) return null;
 
-        internal static YPlaylistPrerolls FromJson(JToken json)
+        return new YPlaylistPrerolls
         {
-            if (json == null) return null;
-
-            return new YPlaylistPrerolls
-            {
-                Id = json.SelectToken("id")?.ToObject<string>(),
-                Link = json.SelectToken("link")?.ToObject<string>()
-            };
-        }
+            Id = json.SelectToken("id")?.ToObject<string>(),
+            Link = json.SelectToken("link")?.ToObject<string>()
+        };
     }
 }

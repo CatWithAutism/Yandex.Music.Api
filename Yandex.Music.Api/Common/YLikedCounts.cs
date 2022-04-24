@@ -1,19 +1,18 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Common
-{
-    public class YLikedCounts
-    {
-        public long LikedArtists { get; set; }
-        public long LikedAlbums { get; set; }
+namespace Yandex.Music.Api.Common;
 
-        internal static YLikedCounts FromJson(JToken json)
+public class YLikedCounts
+{
+    public long LikedArtists { get; set; }
+    public long LikedAlbums { get; set; }
+
+    internal static YLikedCounts FromJson(JToken json)
+    {
+        return new YLikedCounts
         {
-            return new YLikedCounts
-            {
-                LikedArtists = json["likedArtists"].ToObject<long>(),
-                LikedAlbums = json["likedAlbums"].ToObject<long>()
-            };
-        }
+            LikedArtists = json["likedArtists"].ToObject<long>(),
+            LikedAlbums = json["likedAlbums"].ToObject<long>()
+        };
     }
 }

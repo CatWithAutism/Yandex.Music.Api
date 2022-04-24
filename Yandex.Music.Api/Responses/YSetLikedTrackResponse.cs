@@ -1,17 +1,16 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Responses
-{
-    public class YSetLikedTrackResponse
-    {
-        public string Result { get; set; }
+namespace Yandex.Music.Api.Responses;
 
-        public static YSetLikedTrackResponse FromJson(JToken json)
+public class YSetLikedTrackResponse
+{
+    public string Result { get; set; }
+
+    public static YSetLikedTrackResponse FromJson(JToken json)
+    {
+        return new YSetLikedTrackResponse
         {
-            return new YSetLikedTrackResponse
-            {
-                Result = json["result"].ToObject<string>()
-            };
-        }
+            Result = json["result"].ToObject<string>()
+        };
     }
 }

@@ -2,48 +2,47 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Responses
+namespace Yandex.Music.Api.Responses;
+
+public class YAccountResponse
 {
-    public class YAccountResponse
+    public string DefaultUID { get; set; }
+    public List<YandexAccount> Accounts { get; set; }
+    public bool CanAddMore { get; set; }
+
+    public static YAccountResponse FromJson(JToken json)
     {
-        public string DefaultUID { get; set; }
-        public List<YandexAccount> Accounts { get; set; }
-        public bool CanAddMore { get; set; }
-
-        public static YAccountResponse FromJson(JToken json)
+        var yandexAccounts = new YAccountResponse
         {
-            var yandexAccounts = new YAccountResponse
+            DefaultUID = json["default_uid"].ToObject<string>(),
+            Accounts = json["accounts"].Select(x => new YandexAccount
             {
-                DefaultUID = json["default_uid"].ToObject<string>(),
-                Accounts = json["accounts"].Select(x => new YandexAccount
+                Status = x["status"].ToObject<bool>(),
+                UID = x["uid"].ToObject<string>(),
+                Login = x["login"].ToObject<string>(),
+                DisplayName = new YandexAccount.YandexAccountDisplayName
                 {
-                    Status = x["status"].ToObject<bool>(),
-                    UID = x["uid"].ToObject<string>(),
-                    Login = x["login"].ToObject<string>(),
-                    DisplayName = new YandexAccount.YandexAccountDisplayName
-                    {
-                        Name = x["displayName"]["name"].ToObject<string>(),
-                        DefaultAvatar = x["displayName"]["default_avatar"].ToObject<string>()
-                    }
-                }).ToList(),
-                CanAddMore = json["can-add-more"].ToObject<bool>()
-            };
+                    Name = x["displayName"]["name"].ToObject<string>(),
+                    DefaultAvatar = x["displayName"]["default_avatar"].ToObject<string>()
+                }
+            }).ToList(),
+            CanAddMore = json["can-add-more"].ToObject<bool>()
+        };
 
-            return yandexAccounts;
-        }
+        return yandexAccounts;
+    }
 
-        public class YandexAccount
+    public class YandexAccount
+    {
+        public bool Status { get; set; }
+        public string UID { get; set; }
+        public string Login { get; set; }
+        public YandexAccountDisplayName DisplayName { get; set; }
+
+        public class YandexAccountDisplayName
         {
-            public bool Status { get; set; }
-            public string UID { get; set; }
-            public string Login { get; set; }
-            public YandexAccountDisplayName DisplayName { get; set; }
-
-            public class YandexAccountDisplayName
-            {
-                public string Name { get; set; }
-                public string DefaultAvatar { get; set; }
-            }
+            public string Name { get; set; }
+            public string DefaultAvatar { get; set; }
         }
     }
 }

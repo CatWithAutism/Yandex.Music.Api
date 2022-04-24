@@ -1,19 +1,18 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Responses
-{
-    public class YAddLikedTrackResponse
-    {
-        public bool Success { get; set; }
-        public string Act { get; set; }
+namespace Yandex.Music.Api.Responses;
 
-        public static YAddLikedTrackResponse FromJson(JToken json)
+public class YAddLikedTrackResponse
+{
+    public bool Success { get; set; }
+    public string Act { get; set; }
+
+    public static YAddLikedTrackResponse FromJson(JToken json)
+    {
+        return new YAddLikedTrackResponse
         {
-            return new YAddLikedTrackResponse
-            {
-                Success = json["success"].ToObject<bool>(),
-                Act = json["act"].ToObject<string>()
-            };
-        }
+            Success = json["success"].ToObject<bool>(),
+            Act = json["act"].ToObject<string>()
+        };
     }
 }

@@ -1,61 +1,57 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using Yandex.Music.Api.Models.Artist;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YAlbum
 {
-    public class YAlbum
+    [JsonProperty("id")] public int Id { get; set; }
+
+    [JsonProperty("title")] public string Title { get; set; }
+
+    [JsonProperty("metaType")] public string MetaType { get; set; }
+
+    [JsonProperty("contentWarning")] public string ContentWarning { get; set; }
+
+    [JsonProperty("year")] public int Year { get; set; }
+
+    [JsonProperty("releaseDate")] public DateTime ReleaseDate { get; set; }
+
+    [JsonProperty("coverUri")] public string CoverUri { get; set; }
+
+    [JsonProperty("ogImage")] public string OgImage { get; set; }
+
+    [JsonProperty("genre")] public string Genre { get; set; }
+
+    [JsonProperty("buy")] public List<string> Buy { get; set; }
+
+    [JsonProperty("trackCount")] public int TrackCount { get; set; }
+
+    [JsonProperty("likesCount")] public int LikesCount { get; set; }
+
+    [JsonProperty("recent")] public bool Recent { get; set; }
+
+    [JsonProperty("veryImportant")] public bool VeryImportant { get; set; }
+
+    [JsonProperty("artists")] public List<YArtist> Artists { get; set; }
+
+    [JsonProperty("labels")] public List<YLabel> Labels { get; set; }
+
+    [JsonProperty("available")] public bool Available { get; set; }
+
+    [JsonProperty("availableForPremiumUsers")]
+    public bool AvailableForPremiumUsers { get; set; }
+
+    [JsonProperty("availableForMobile")] public bool AvailableForMobile { get; set; }
+
+    [JsonProperty("availablePartially")] public bool AvailablePartially { get; set; }
+
+    [JsonProperty("bests")] public List<string> Bests { get; set; }
+
+    internal static YAlbum FromJson(string json)
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public string ContentWarning { get; set; }
-        public int Year { get; set; }
-        public string ReleaseDate { get; set; }
-        public string CoverUri { get; set; }
-        public string OgImage { get; set; }
-
-        public string Genre { get; set; }
-
-//            public List<string> Buy { get; set; }
-        public int TrackCount { get; set; }
-        public bool Recent { get; set; }
-        public bool VeryImportant { get; set; }
-        public List<YArtist> Artists { get; set; }
-        public List<YLabel> Labels { get; set; }
-        public bool Available { get; set; }
-        public bool AvailableForPremiumUsers { get; set; }
-        public bool AvailableForMobile { get; set; }
-        public bool AvailablePartially { get; set; }
-        public List<string> Bests { get; set; }
-        public YTrackPosition TrackPosition { get; set; }
-
-        internal static YAlbum FromJson(JToken json)
-        {
-            if (json == null) return null;
-
-            return new YAlbum
-            {
-                Id = json.SelectToken("id")?.ToObject<string>(),
-                Title = json.SelectToken("title")?.ToObject<string>(),
-                Year = json.SelectToken("year").ToObject<int>(),
-                ReleaseDate = json.SelectToken("releaseDate")?.ToObject<string>(),
-                CoverUri = json.SelectToken("coverUri")?.ToObject<string>(),
-                OgImage = json.SelectToken("ogImage")?.ToObject<string>(),
-                Genre = json.SelectToken("genre")?.ToObject<string>(),
-//                Buy
-                TrackCount = json.SelectToken("trackCount").ToObject<int>(),
-                Recent = json.SelectToken("recent").ToObject<bool>(),
-                VeryImportant = json.SelectToken("veryImportant").ToObject<bool>(),
-                Artists = json.SelectToken("artists")?.Select(YArtist.FromJson).ToList(),
-                Labels = json.SelectToken("labels")?.Select(YLabel.FromJson).ToList(),
-                Available = json.SelectToken("available").ToObject<bool>(),
-                AvailableForPremiumUsers = json.SelectToken("availableForPremiumUsers").ToObject<bool>(),
-                AvailableForMobile = json.SelectToken("availableForMobile").ToObject<bool>(),
-                AvailablePartially = json.SelectToken("availablePartially").ToObject<bool>(),
-                Bests = json.SelectToken("bests")?.Select(x => x.ToObject<string>()).ToList(),
-                TrackPosition = YTrackPosition.FromJson(json.SelectToken("trackPosition"))
-            };
-        }
+        return string.IsNullOrWhiteSpace(json) ? null : JsonConvert.DeserializeObject<YAlbum>(json);
     }
 }

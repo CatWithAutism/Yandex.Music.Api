@@ -1,23 +1,17 @@
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
-namespace Yandex.Music.Api.Models.Artist
+namespace Yandex.Music.Api.Models.Artist;
+
+public class YArtistCover
 {
-    public class YArtistCover
+    [JsonProperty("type")] public string Type { get; set; }
+
+    [JsonProperty("prefix")] public string Prefix { get; set; }
+
+    [JsonProperty("uri")] public string Uri { get; set; }
+
+    internal static YArtistCover FromJson(string json)
     {
-        public string Type { get; set; }
-        public string Prefix { get; set; }
-        public string Url { get; set; }
-
-        internal static YArtistCover FromJson(JToken json)
-        {
-            if (json == null) return null;
-
-            return new YArtistCover
-            {
-                Type = json.SelectToken("type")?.ToObject<string>(),
-                Prefix = json.SelectToken("prefix")?.ToObject<string>(),
-                Url = json.SelectToken("uri")?.ToObject<string>()
-            };
-        }
+        return string.IsNullOrWhiteSpace(json) ? null : JsonConvert.DeserializeObject<YArtistCover>(json);
     }
 }

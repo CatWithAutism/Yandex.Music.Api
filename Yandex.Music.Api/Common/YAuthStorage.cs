@@ -2,51 +2,50 @@ using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YAuthStorage
 {
-    public class YAuthStorage
+    private readonly string _filePath;
+
+    public YAuthStorage(string filePath)
     {
-        private readonly string _filePath;
+        _filePath = filePath;
+    }
 
-        public YAuthStorage(string filePath)
+    public async Task SaveAsync(YUser user)
+    {
+        File.Delete(_filePath);
+
+        var jsonUser = JsonConvert.SerializeObject(user);
+
+        using (var stream = new FileStream(_filePath, FileMode.OpenOrCreate))
         {
-            _filePath = filePath;
-        }
-
-        public async Task SaveAsync(YUser user)
-        {
-            File.Delete(_filePath);
-
-            var jsonUser = JsonConvert.SerializeObject(user);
-
-            using (var stream = new FileStream(_filePath, FileMode.OpenOrCreate))
+            using (var writer = new StreamWriter(stream))
             {
-                using (var writer = new StreamWriter(stream))
-                {
-                    await writer.WriteAsync(jsonUser);
-                }
+                await writer.WriteAsync(jsonUser);
+            }
+        }
+    }
+
+    public async Task<YUser> LoadAsync()
+    {
+        var user = default(YUser);
+
+        if (!File.Exists(_filePath)) return user;
+
+        var userSource = string.Empty;
+
+        using (var stream = new FileStream(_filePath, FileMode.Open))
+        {
+            using (var reader = new StreamReader(stream))
+            {
+                userSource = await reader.ReadToEndAsync();
             }
         }
 
-        public async Task<YUser> LoadAsync()
-        {
-            var user = default(YUser);
+        user = JsonConvert.DeserializeObject<YUser>(userSource);
 
-            if (!File.Exists(_filePath)) return user;
-
-            var userSource = string.Empty;
-
-            using (var stream = new FileStream(_filePath, FileMode.Open))
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    userSource = await reader.ReadToEndAsync();
-                }
-            }
-
-            user = JsonConvert.DeserializeObject<YUser>(userSource);
-
-            return user;
-        }
+        return user;
     }
 }

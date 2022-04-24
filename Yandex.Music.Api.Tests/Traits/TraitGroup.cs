@@ -1,13 +1,12 @@
-﻿namespace Yandex.Music.Api.Tests.Traits
+﻿namespace Yandex.Music.Api.Tests.Traits;
+
+public enum TraitGroup
 {
-    public enum TraitGroup
-    {
-        All,
-        Authorize,
-        ExtractTrack,
-        GetTracks,
-        SendTracks,
-        RemoveTrack,
-        SearchTracks
-    }
+    All,
+    Authorize,
+    ExtractTrack,
+    GetTracks,
+    SendTracks,
+    RemoveTrack,
+    SearchTracks
 }

@@ -5,33 +5,33 @@ using Xunit.Abstractions;
 using Yandex.Music.Api.Responses;
 using Yandex.Music.Api.Tests.Traits;
 
-namespace Yandex.Music.Api.Tests.Tests
-{
-    [Collection("Yandex Test Harness")]
-    public class ExtractingTrackTest : YandexTest
-    {
-        public const string FolderData = "data";
-        public readonly string PathFile;
+namespace Yandex.Music.Api.Tests.Tests;
 
-        public ExtractingTrackTest(YandexTestHarness fixture, ITestOutputHelper output) : base(fixture, output)
-        {
-            if (!Directory.Exists(FolderData))
-                Directory.CreateDirectory(FolderData);
+[Collection("Yandex Test Harness")]
+public class ExtractingTrackTest : YandexTest
+{
+    public const string FolderData = "data";
+    public readonly string PathFile;
+
+    public ExtractingTrackTest(YandexTestHarness fixture, ITestOutputHelper output) : base(fixture, output)
+    {
+        if (!Directory.Exists(FolderData))
+            Directory.CreateDirectory(FolderData);
 
 //      Api.Authorize(AppSettings.Login, AppSettings.Password);
 //      var f = Api.GetListFavorites();
 //      Track = Api.GetListFavorites().FirstOrDefault();
 //      PathFile = $"{FolderData}/{Track.Title}.mp3";
-        }
+    }
 
-        public YTrackResponse Track { get; set; }
+    public YTrackResponse Track { get; set; }
 
-        [Fact]
-        [YandexTrait(TraitGroup.ExtractTrack)]
-        public void DownloadTrack_DownloadFile_OneTrack()
-        {
+    [Fact]
+    [YandexTrait(TraitGroup.ExtractTrack)]
+    public void DownloadTrack_DownloadFile_OneTrack()
+    {
 //      Api.DownloadTrackToFile(trackIdAndAlbumsId);
-            Api.Authorize(AppSettings.Login, AppSettings.Password);
+        Api.Authorize(AppSettings.Login, AppSettings.Password);
 
 //        Track = Api.GetPlaylistFavorites().FirstOrDefault();
 //        var streamTrack = Api.ExtractStreamTrack(Track.GetKey(), Track.FileSize.Value);
@@ -62,44 +62,44 @@ namespace Yandex.Music.Api.Tests.Tests
 //      fileSize.Should().BeGreaterOrEqualTo(Track.FileSize.Value);
 
 //      File.Delete(PathFile);
-        }
+    }
 
-        [Fact]
-        [YandexTrait(TraitGroup.ExtractTrack)]
-        public void ExtractingTrack_DownloadFile_OneTrack()
-        {
+    [Fact]
+    [YandexTrait(TraitGroup.ExtractTrack)]
+    public void ExtractingTrack_DownloadFile_OneTrack()
+    {
 //      var isDownloaded = Api.ExtractTrackToFile(Track, FolderData);
 //      isDownloaded.Should().BeTrue();
 
-            var isFileExist = File.Exists(PathFile);
-            isFileExist.Should().BeTrue();
+        var isFileExist = File.Exists(PathFile);
+        isFileExist.Should().BeTrue();
 
-            int? fileSize = 0;
-            using (var stream = File.Open(PathFile, FileMode.Open))
-            {
-                var stLength = stream.Length;
-                var buffer = new byte[stLength];
-                stream.Read(buffer, 0, (int) stLength);
-                fileSize = buffer.Length;
-            }
-
-            fileSize.Should().BeGreaterOrEqualTo(Track.FileSize.Value);
-
-            File.Delete(PathFile);
+        int? fileSize = 0;
+        using (var stream = File.Open(PathFile, FileMode.Open))
+        {
+            var stLength = stream.Length;
+            var buffer = new byte[stLength];
+            stream.Read(buffer, 0, (int) stLength);
+            fileSize = buffer.Length;
         }
 
-        [Fact]
-        [YandexTrait(TraitGroup.ExtractTrack)]
-        public void ExtractingTrack_ExtractByteData_ReturnByteTrack()
-        {
+        fileSize.Should().BeGreaterOrEqualTo(Track.FileSize.Value);
+
+        File.Delete(PathFile);
+    }
+
+    [Fact]
+    [YandexTrait(TraitGroup.ExtractTrack)]
+    public void ExtractingTrack_ExtractByteData_ReturnByteTrack()
+    {
 //      var byteData = Api.ExtractDataTrack(Track);
 //      byteData.Length.Should().BeGreaterOrEqualTo(Track.FileSize.Value);
-        }
+    }
 
-        [Fact]
-        [YandexTrait(TraitGroup.ExtractTrack)]
-        public void ExtractingTrack_ExtractStream_ReturnStream()
-        {
+    [Fact]
+    [YandexTrait(TraitGroup.ExtractTrack)]
+    public void ExtractingTrack_ExtractStream_ReturnStream()
+    {
 //      var stream = Api.ExtractStreamTrack(Track);
 //      var isComplated = false;
 //      var fileSizeFromStream = 0;
@@ -122,6 +122,5 @@ namespace Yandex.Music.Api.Tests.Tests
 
 //      isComplated.Should().BeTrue();
 //      fileSizeFromStream.Should().BeGreaterOrEqualTo(Track.FileSize.Value);
-        }
     }
 }

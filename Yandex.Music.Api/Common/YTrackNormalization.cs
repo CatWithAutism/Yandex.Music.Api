@@ -1,21 +1,20 @@
 using Newtonsoft.Json.Linq;
 
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YTrackNormalization
 {
-    public class YTrackNormalization
+    public double Gain { get; set; }
+    public double Peak { get; set; }
+
+    internal static YTrackNormalization FromJson(JToken json)
     {
-        public double Gain { get; set; }
-        public double Peak { get; set; }
+        if (json == null) return null;
 
-        internal static YTrackNormalization FromJson(JToken json)
+        return new YTrackNormalization
         {
-            if (json == null) return null;
-
-            return new YTrackNormalization
-            {
-                Gain = json.SelectToken("gain").ToObject<double>(),
-                Peak = json.SelectToken("peak").ToObject<double>()
-            };
-        }
+            Gain = json.SelectToken("gain").ToObject<double>(),
+            Peak = json.SelectToken("peak").ToObject<double>()
+        };
     }
 }

@@ -1,6 +1,5 @@
-namespace Yandex.Music.Api.Models.Search.User
+namespace Yandex.Music.Api.Models.Search.User;
+
+public class YSearchUserModel
 {
-    public class YSearchUserModel
-    {
-    }
 }

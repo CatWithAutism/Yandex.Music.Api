@@ -3,23 +3,22 @@ using Xunit;
 using Xunit.Abstractions;
 using Yandex.Music.Api.Tests.Traits;
 
-namespace Yandex.Music.Api.Tests.Tests.Account
+namespace Yandex.Music.Api.Tests.Tests.Account;
+
+[Collection("Yandex Test Harness")]
+public class AccountTests : YandexTest
 {
-    [Collection("Yandex Test Harness")]
-    public class AccountTests : YandexTest
+    public AccountTests(YandexTestHarness fixture, ITestOutputHelper output = null) : base(fixture, output)
     {
-        public AccountTests(YandexTestHarness fixture, ITestOutputHelper output = null) : base(fixture, output)
-        {
-        }
+    }
 
-        [Fact]
-        [YandexTrait(TraitGroup.Authorize)]
-        public void Account_ValidData_GenerateTrue()
-        {
-            var isAuthorized = Api.Authorize(AppSettings.Login, AppSettings.Password);
-            var accounts = Api.GetAccounts();
+    [Fact]
+    [YandexTrait(TraitGroup.Authorize)]
+    public void Account_ValidData_GenerateTrue()
+    {
+        var isAuthorized = Api.Authorize(AppSettings.Login, AppSettings.Password);
+        var accounts = Api.GetAccounts();
 
-            isAuthorized.IsAuthorized.Should().BeTrue();
-        }
+        isAuthorized.IsAuthorized.Should().BeTrue();
     }
 }

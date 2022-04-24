@@ -1,7 +1,6 @@
-namespace Yandex.Music.Api.Common
+namespace Yandex.Music.Api.Common;
+
+public class YCoverError : YCover
 {
-    public class YCoverError : YCover
-    {
-        public string Error { get; set; }
-    }
+    public string Error { get; set; }
 }
