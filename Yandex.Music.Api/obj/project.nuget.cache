@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qvi2kYV4ZNSEL2XtNGRzl+nc+J1Y4QFy4P5K5bOAvXU7W4iJqEl+YMjQ0FZz6b09t9TEVk2teCkZ5AaIloNQaA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vladislav\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

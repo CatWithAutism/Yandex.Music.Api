@@ -1,0 +1,15 @@
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\Yandex.Music.Client.deps.json
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\Yandex.Music.Client.dll
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\ref\Yandex.Music.Client.dll
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\Yandex.Music.Client.pdb
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\Yandex.Music.Api.dll
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\bin\Debug\net6.0\Yandex.Music.Api.pdb
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.csproj.AssemblyReference.cache
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.AssemblyInfoInputs.cache
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.AssemblyInfo.cs
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.csproj.CoreCompileInputs.cache
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.csproj.CopyComplete
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.dll
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\ref\Yandex.Music.Client.dll
+C:\Users\Vladislav\Desktop\Programming\C#\Yandex.Music.Api\Yandex.Music.Client\obj\Debug\net6.0\Yandex.Music.Client.pdb

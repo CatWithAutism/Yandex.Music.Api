@@ -1,0 +1,196 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client.Tests\\Yandex.Music.Client.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj",
+        "projectName": "Yandex.Music.Api",
+        "projectPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj",
+        "packagesPath": "C:\\Users\\Vladislav\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vladislav\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client.Tests\\Yandex.Music.Client.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client.Tests\\Yandex.Music.Client.Tests.csproj",
+        "projectName": "Yandex.Music.Client.Tests",
+        "projectPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client.Tests\\Yandex.Music.Client.Tests.csproj",
+        "packagesPath": "C:\\Users\\Vladislav\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vladislav\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\Yandex.Music.Client.csproj": {
+                "projectPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\Yandex.Music.Client.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\Yandex.Music.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\Yandex.Music.Client.csproj",
+        "projectName": "Yandex.Music.Client",
+        "projectPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\Yandex.Music.Client.csproj",
+        "packagesPath": "C:\\Users\\Vladislav\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vladislav\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj": {
+                "projectPath": "C:\\Users\\Vladislav\\Desktop\\Programming\\C#\\Yandex.Music.Api\\Yandex.Music.Api\\Yandex.Music.Api.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
